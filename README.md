@@ -14,7 +14,7 @@ Sample Brubeck and web.py projects are in `examples` folder.
 
 ##Usage
 
-	from lesscss.lesscss import LessCSS
+	from lesscss import LessCSS
 	LessCSS(media_dir='media', exclude_dirs=['img', 'js'], based=True)
 
 ###Parameters
@@ -22,7 +22,8 @@ Sample Brubeck and web.py projects are in `examples` folder.
 - **media_dir**: Directory where you put static/media files such as css/js/img.
 - **exclude_dirs**: Directories you don't want to be searched. It'd be pointless to search for `less` files in an images directory. This parameter is expected to be a list.
 - **based**: If it's set `True` then LessCSS will generate the `style-(base60).css` version as well (for example; `style-dHCFD.css`). This is useful if you set expire times of static files to a distant future since browsers will not retrieve those files unless the name is different or the cache has expired. This parameter is expected to be a boolean value.
-	
+- **compressed**: If it's set `True` then LessCSS will minimize the generated CSS files. This parameter is expected to be a boolean value.
+
 
 ##TODO
 - Automatically set CSS name in HTML templates.
