@@ -10,7 +10,7 @@ Sample Brubeck and web.py projects are in `examples` folder.
 
 ##Installation
 
-`$ pip -U install lesscss`
+	$ pip -U install lesscss
 
 ##Usage
 
