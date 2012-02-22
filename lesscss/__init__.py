@@ -27,7 +27,7 @@ class LessCSS(object):
     """
 
     def __init__(self, media_dir='static', exclude_dirs=None, based=True,
-                compressed=True):
+                compressed=True, output_dir=None):
         """ Initialize LessCSS. When you wrap your web application you need to
         define the following parameters:
 
@@ -50,12 +50,17 @@ class LessCSS(object):
         ``compressed``
             If this is set to `True`, then the compiled CSS file will be
             minimized.
+            
+        ``output_dir``
+            Define the absolute path of the folder where compiled CSS files
+            should be put.
 
         """
         self._media = media_dir
         self._based = based
         self._compressed = compressed
         self._excluded = exclude_dirs
+        self._output = output_dir.rstrip('/')
         self.compile()
 
     @classmethod
@@ -107,6 +112,9 @@ class LessCSS(object):
         for i in less:
             filename = os.path.splitext(i)[0]
             css = '%s.css' % filename
+            if self._output:
+                css = css.split('/')[-1]
+                css = '%s/%s' % (self._output, css)
             css_time = -1  # Poor man's Integer.MIN_VALUE
             if os.path.isfile(css):
                 css_time = os.path.getmtime(css)
@@ -119,5 +127,8 @@ class LessCSS(object):
                     del command_opt[-1]
                     css_based = '%s-%s.css' % (filename,
                                                 LessCSS.to60(uuid4().time_low))
+                    if self._output:
+                        css_based = css_based.split('/')[-1]
+                        css_based = '%s/%s' % (self._output, css_based)
                     command_opt.append(css_based)
                     subprocess.call(command_opt, shell=False)
