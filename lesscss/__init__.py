@@ -60,7 +60,7 @@ class LessCSS(object):
         self._based = based
         self._compressed = compressed
         self._excluded = exclude_dirs
-        self._output = output_dir.rstrip('/')
+        self._output = output_dir.rstrip('/') if output_dir else None
         self.compile()
 
     @classmethod
