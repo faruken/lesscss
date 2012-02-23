@@ -14,14 +14,14 @@ files are modified. It works with Brubeck and web.py web frameworks. Although
 it's not tested on other frameworks such as bottle, it should work without any
 problems.
 
-**Note:** You need to install less before using this.
+**Note:** You need to install LESS before using this.
 
 Installation
 ============
 
 ::
 
-    $ pip -U install lesscss
+    $ pip install lesscss
 
 
 Usage
@@ -55,7 +55,7 @@ from setuptools import (setup, find_packages)
 setup(
 
     name='lesscss',
-    version='0.1.1',
+    version='0.1.2',
     url='http://github.com/faruken/lesscss',
     license='BSD',
     author='Faruk Akgul',
