@@ -1,0 +1,25 @@
+LessCSS Changelog
+=================
+
+v0.1.2
+-------------
+
+Feb, 22 2012.
+
+- Added `output_dir` option.
+
+
+v0.1.1
+-------------
+
+Feb, 09 2012.
+
+- Added `compiled` option.
+
+
+v0.1
+-----------
+
+Feb, 08 2012.
+
+- First public release.

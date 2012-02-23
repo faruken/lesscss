@@ -2,7 +2,7 @@
 
 LessCSS is a helper which automatically compiles LESS files to CSS whenever the LESS files are modified.
 
-It works with Brubeck and web.py web frameworks. Although it's not tested on other frameworks such as bottle, it should work without any problems.
+It works with Brubeck, web.py and Flask web frameworks. Although it's not tested on other frameworks such as bottle, it should work without any problems.
 
 Sample Brubeck and web.py projects are in `examples` folder.
 
@@ -10,7 +10,7 @@ Sample Brubeck and web.py projects are in `examples` folder.
 
 ##Installation
 
-	$ pip -U install lesscss
+	$ pip install lesscss
 
 ##Usage
 
@@ -23,6 +23,8 @@ Sample Brubeck and web.py projects are in `examples` folder.
 - **exclude_dirs**: Directories you don't want to be searched. It'd be pointless to search for `less` files in an images directory. This parameter is expected to be a list.
 - **based**: If it's set `True` then LessCSS will generate the `style-(base60).css` version as well (for example; `style-dHCFD.css`). This is useful if you set expire times of static files to a distant future since browsers will not retrieve those files unless the name is different or the cache has expired. This parameter is expected to be a boolean value.
 - **compressed**: If it's set `True` then LessCSS will minimize the generated CSS files. This parameter is expected to be a boolean value.
+- **output_dir**: Absolute path of the folder where compiled CSS files
+should be put.
 
 
 ##TODO
