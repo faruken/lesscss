@@ -2,7 +2,7 @@
 
 LessCSS is a helper which automatically compiles LESS files to CSS whenever the LESS files are modified.
 
-It works with Brubeck, web.py and Flask web frameworks. Although it's not tested on other frameworks such as bottle, it should work without any problems.
+It works with Brubeck and web.py web frameworks. Although it's not tested on other frameworks such as bottle, it should work without any problems.
 
 Sample Brubeck and web.py projects are in `examples` folder.
 
