@@ -30,7 +30,7 @@ Usage
 ::
 
     from lesscss import LessCSS
-    LessCSS(media_dir='media', exclude_dirs=['img', 'src'], based=True, compressed=True, output_dir=None)
+    LessCSS(media_dir='media', exclude_dirs=['img', 'src'], based=True, compressed=True, compression='x', output_dir=None)
 
 
 Parameters
@@ -40,6 +40,7 @@ Parameters
 - **exclude_dirs:** Directories you don't want to be searched. It'd be pointless to search for less files in an images directory. This parameter is expected to be a list.
 - **based:** If it's set True then LessCSS will generate the style-(base60).css version as well (for example; style-dHCFD.css). This is useful if you set expire times of static files to a distant future since browsers will not retrieve those files unless the name is different or the cache has expired. This parameter is expected to be a boolean value.
 - **compressed**: If it's set `True` then LessCSS will minimize the generated CSS files. This parameter is expected to be a boolean value.
+- **compression**: Specifies the type of compression to use. Default to the normal compression, 'x'. Other option is to use the [YUI Compressor](http://developer.yahoo.com/yui/compressor/css.html), 'yui'. See "Command-line Usage" at http://lesscss.org/.
 - **output_dir:** Directory where you put compiled CSS files if different than location of .less file.
 
 

@@ -27,7 +27,7 @@ class LessCSS(object):
     """
 
     def __init__(self, media_dir='static', exclude_dirs=None, based=True,
-                compressed=True, output_dir=None):
+                compressed=True, compression='x', output_dir=None):
         """ Initialize LessCSS. When you wrap your web application you need to
         define the following parameters:
 
@@ -50,7 +50,13 @@ class LessCSS(object):
         ``compressed``
             If this is set to `True`, then the compiled CSS file will be
             minimized.
-            
+
+        ``compression``
+            The type of compression to use. Default to standard 'x' compression.
+            Set to 'yui' to use YUI Compressor
+            (http://developer.yahoo.com/yui/compressor/css.html).
+            See "Command-line Usage" at http://lesscss.org/
+
         ``output_dir``
             Define the absolute path of the folder where compiled CSS files
             should be put.
@@ -59,6 +65,7 @@ class LessCSS(object):
         self._media = media_dir
         self._based = based
         self._compressed = compressed
+        self._compression = compression
         self._excluded = exclude_dirs
         self._output = output_dir.rstrip('/') if output_dir else None
         self.compile()
@@ -109,6 +116,8 @@ class LessCSS(object):
         command_opt = ['lessc', '-x']
         if not self._compressed:
             del command_opt[-1]
+        if self._compressed and self._compression.lower() == 'yui':
+            command_opt[1] = '--yui-compress'
         for i in less:
             filename = os.path.splitext(i)[0]
             css = '%s.css' % filename
