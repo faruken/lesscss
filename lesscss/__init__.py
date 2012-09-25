@@ -131,6 +131,9 @@ class LessCSS(object):
             if less_time >= css_time:
                 command_opt.append(i)
                 command_opt.append(css)
+                css_dir = os.path.dirname(css)
+                if not os.path.exists(css_dir):
+                    os.mkdir(css_dir)
                 subprocess.call(command_opt, shell=False)
                 if self._based:
                     del command_opt[-1]
