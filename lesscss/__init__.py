@@ -122,7 +122,7 @@ class LessCSS(object):
             filename = os.path.splitext(i)[0]
             css = '%s.css' % filename
             if self._output:
-                css = css.split('/')[-1]
+                css = os.path.relpath(css, self._media)
                 css = '%s/%s' % (self._output, css)
             css_time = -1  # Poor man's Integer.MIN_VALUE
             if os.path.isfile(css):
