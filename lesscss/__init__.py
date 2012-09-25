@@ -140,7 +140,7 @@ class LessCSS(object):
                     css_based = '%s-%s.css' % (filename,
                                                 LessCSS.to60(uuid4().time_low))
                     if self._output:
-                        css_based = css_based.split('/')[-1]
+                        css_based = os.path.relpath(css_based, self._media)
                         css_based = '%s/%s' % (self._output, css_based)
                     command_opt.append(css_based)
                     subprocess.call(command_opt, shell=False)
