@@ -133,7 +133,7 @@ class LessCSS(object):
                 command_opt.append(css)
                 css_dir = os.path.dirname(css)
                 if not os.path.exists(css_dir):
-                    os.mkdir(css_dir)
+                    os.makedirs(css_dir)
                 subprocess.call(command_opt, shell=False)
                 if self._based:
                     del command_opt[-1]
