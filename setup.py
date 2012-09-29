@@ -56,7 +56,7 @@ from setuptools import (setup, find_packages)
 setup(
 
     name='lesscss',
-    version='0.1.2',
+    version='0.1.4',
     url='http://github.com/faruken/lesscss',
     license='BSD',
     author='Faruk Akgul',
