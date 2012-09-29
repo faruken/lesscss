@@ -122,7 +122,7 @@ class LessCSS(object):
             filename = os.path.splitext(i)[0]
             css = '%s.css' % filename
             if self._output:
-                css = css.split('/')[-1]
+                css = os.path.relpath(css, self._media)
                 css = '%s/%s' % (self._output, css)
             css_time = -1  # Poor man's Integer.MIN_VALUE
             if os.path.isfile(css):
@@ -131,13 +131,17 @@ class LessCSS(object):
             if less_time >= css_time:
                 command_opt.append(i)
                 command_opt.append(css)
+                css_dir = os.path.dirname(css)
+                if not os.path.exists(css_dir):
+                    os.makedirs(css_dir)
                 subprocess.call(command_opt, shell=False)
                 if self._based:
                     del command_opt[-1]
                     css_based = '%s-%s.css' % (filename,
                                                 LessCSS.to60(uuid4().time_low))
                     if self._output:
-                        css_based = css_based.split('/')[-1]
+                        css_based = os.path.relpath(css_based, self._media)
                         css_based = '%s/%s' % (self._output, css_based)
                     command_opt.append(css_based)
                     subprocess.call(command_opt, shell=False)
+            del command_opt[-2:]
