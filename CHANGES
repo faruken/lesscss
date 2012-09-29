@@ -1,6 +1,21 @@
 LessCSS Changelog
 =================
 
+v0.1.4
+-------------
+Sep 29, 2012.
+
+- Fixed compiling only 1 file.
+- Fixed original directory removal bug when `output_dir` is set.
+- Create directories recursively when `output_dir` is set if they don't exist.
+
+
+v0.1.3
+-------------
+Apr, 26 2012.
+
+- Add option to specify compression type.
+
 v0.1.2
 -------------
 
