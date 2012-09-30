@@ -9,10 +9,9 @@ __doc__ = """
 About
 =====
 
-LessCSS is a helper which automatically compiles LESS files to CSS when LESS
-files are modified. It works with Brubeck and web.py web frameworks. Although
-it's not tested on other frameworks such as bottle, it should work without any
-problems.
+LessCSS is a tool which automatically compiles LESS files to CSS when LESS
+files are modified. It works with Brubeck, web.py and bottle web frameworks. It
+should work with other frameworks without any problems though it's not tested.
 
 **Note:** You need to install LESS before using this.
 
@@ -27,10 +26,12 @@ Installation
 Usage
 =====
 
+An example usage
+
 ::
 
     from lesscss import LessCSS
-    LessCSS(media_dir='media', exclude_dirs=['img', 'src'], based=True, compressed=True, compression='x', output_dir=None)
+    LessCSS(media_dir='media', exclude_dirs=['img', 'src'], based=True, compression='x')
 
 
 Parameters
@@ -40,7 +41,7 @@ Parameters
 - **exclude_dirs:** Directories you don't want to be searched. It'd be pointless to search for less files in an images directory. This parameter is expected to be a list.
 - **based:** If it's set True then LessCSS will generate the style-(base60).css version as well (for example; style-dHCFD.css). This is useful if you set expire times of static files to a distant future since browsers will not retrieve those files unless the name is different or the cache has expired. This parameter is expected to be a boolean value.
 - **compressed**: If it's set `True` then LessCSS will minimize the generated CSS files. This parameter is expected to be a boolean value.
-- **compression**: Specifies the type of compression to use. Default to the normal compression, 'x'. Other option is to use the [YUI Compressor](http://developer.yahoo.com/yui/compressor/css.html), 'yui'. See "Command-line Usage" at http://lesscss.org/.
+- **compression**: Specifies the type of compression to use. Default to the normal compression, 'x'. Other option is to use the YUI Compressor. See "Command-line Usage" at http://lesscss.org/.
 - **output_dir:** Directory where you put compiled CSS files if different than location of .less file.
 
 
@@ -61,7 +62,7 @@ setup(
     license='BSD',
     author='Faruk Akgul',
     author_email='me@akgul.org',
-    description='A helper which automatically compiles LESS files to CSS.',
+    description='A tool which automatically compiles LESS files to CSS.',
     long_description=__doc__,
     zip_safe=False,
     packages=find_packages(exclude=['examples']),
@@ -75,6 +76,7 @@ setup(
         'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
