@@ -92,7 +92,6 @@ class LessCSS(object):
         """
         media_dir = self._media
         less = []
-        REGEX = re.compile(r'^.*[.](?P<ext>less|\w+)$', re.I)
         for root, dirs, files in os.walk(media_dir):
             if self._excluded is not None and isinstance(self._excluded, list):
                 [dirs.remove(exclude)
@@ -101,7 +100,7 @@ class LessCSS(object):
             less.extend([
                             os.path.join(root, i)
                             for i in files
-                            if REGEX.match(i).group('ext') == 'less'
+                            if os.path.splitext(i)[1] == '.less'
                         ])
         return less
 
